@@ -14,9 +14,16 @@ class UtilsTest extends TestCase
     // Ключевое слово public нужно, чтобы PHPUnit мог вызвать этот тест снаружи
     public function testReverse(): void
     {
+
+        $trueText = trim( file_get_contents(__DIR__ . "/fixtures/reversedText.txt"));
+        $originText = trim(file_get_contents(__DIR__ . "/fixtures/originText.txt"));
+        $reversedText = reverseString($originText);
         // Сначала идет ожидаемое значение (expected)
         // И только потом актуальное (actual)
-        $this->assertEquals('', reverseString(''));
-        $this->assertEquals('olleh', reverseString('hello'));
+       # $this->assertEquals('', reverseString(''));
+       # $this->assertEquals('olleh', reverseString('hello'));
+
+	$this->assertEquals($trueText, $reversedText);
+
     }
 }
